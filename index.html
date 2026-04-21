@@ -3077,13 +3077,76 @@
 
         // 原始产品数据（从Excel导入）
         const PRODUCTS = [
-            // 种子 - 春夏都可以
-            {"产品名称": "郑单958", "品牌/厂家": "鑫丰/山东鑫丰种业股份有限公司", "规格": "1.5kg", "审定编号": "—", "产品特点": "玉米杂交种，德国拜耳种衣剂", "价格": "待填", "备注": "优质玉米品种", "category": "种子", "subCategory": "春夏都可以", "stock": 100},
-            {"产品名称": "京科355", "品牌/厂家": "北京农科院种业/北京农科院种业科技有限公司", "规格": "455g", "审定编号": "国审玉20233301", "产品特点": "玉米杂交种", "价格": "待填", "备注": "权威认证", "category": "种子", "subCategory": "春夏都可以", "stock": 80},
-            {"产品名称": "登海2073", "品牌/厂家": "登海", "规格": "4200粒", "审定编号": "—", "产品特点": "玉米杂交种", "价格": "待填", "备注": null, "category": "种子", "subCategory": "春夏都可以", "stock": 50},
-            {"产品名称": "先玉1653", "品牌/厂家": "先锋(PIONEER)", "规格": "4200粒", "审定编号": "品种权号:CNA20191002443", "产品特点": "玉米杂交种", "价格": "待填", "备注": null, "category": "种子", "subCategory": "春夏都可以", "stock": 60},
-            {"产品名称": "农单145", "品牌/厂家": "农兆福", "规格": "4400粒", "审定编号": "冀审玉20200004、冀审玉20180029", "产品特点": "玉米杂交种，单粒播种", "价格": "待填", "备注": "高产宣传语", "category": "种子", "subCategory": "春夏都可以", "stock": 40},
-            {"产品名称": "洛白糯2号", "品牌/厂家": "山西农兆福种业有限公司", "规格": "—", "审定编号": "国审玉20170041", "产品特点": "鲜食玉米品种：皮薄无渣、软糯香甜、口感细腻、风味佳", "价格": "待填", "备注": "获多届展会推介品种", "category": "种子", "subCategory": "春夏都可以", "stock": 30}
+            // ========== 种子产品 ==========
+            {"产品名称": "郑单958", "品牌/厂家": "鑫丰/山东鑫丰种业股份有限公司", "规格": "1.5kg", "审定编号": "—", "产品特点": "玉米杂交种，德国拜耳种衣剂", "价格": "待填", "备注": "优质玉米品种", "category": "种子", "subCategory": "春夏都可以", "stock": 100,
+                "用途": {"type": "种子", "target": ["玉米"], "crops": ["玉米"], "usage": "穴播或条播", "timing": "春播4-5月，夏播6-7月", "dosage": "每亩用种2.5-3kg", "attention": "播深3-5cm，密度4000-4500株/亩", "recommend": ["尿素", "磷酸二铵", "复合肥"]}},
+            {"产品名称": "京科355", "品牌/厂家": "北京农科院种业/北京农科院种业科技有限公司", "规格": "455g", "审定编号": "国审玉20233301", "产品特点": "玉米杂交种", "价格": "待填", "备注": "权威认证", "category": "种子", "subCategory": "春夏都可以", "stock": 80,
+                "用途": {"type": "种子", "target": ["玉米"], "crops": ["玉米"], "usage": "机播或人工点播", "timing": "春播4-5月，夏播6月", "dosage": "每亩用种2.5-3kg", "attention": "适期播种，合理密植3500-4000株/亩", "recommend": ["尿素", "复合肥", "磷酸二铵"]}},
+            {"产品名称": "登海2073", "品牌/厂家": "登海", "规格": "4200粒", "审定编号": "—", "产品特点": "玉米杂交种", "价格": "待填", "备注": null, "category": "种子", "subCategory": "春夏都可以", "stock": 50,
+                "用途": {"type": "种子", "target": ["玉米"], "crops": ["玉米"], "usage": "精量播种", "timing": "春播4月中旬至5月上旬", "dosage": "每亩4200粒", "attention": "单粒播种，播深3-4cm，注意种肥隔离", "recommend": ["尿素", "复合肥", "甲维盐"]}},
+            {"产品名称": "先玉1653", "品牌/厂家": "先锋(PIONEER)", "规格": "4200粒", "审定编号": "品种权号:CNA20191002443", "产品特点": "玉米杂交种", "价格": "待填", "备注": null, "category": "种子", "subCategory": "春夏都可以", "stock": 60,
+                "用途": {"type": "种子", "target": ["玉米"], "crops": ["玉米"], "usage": "单粒精播", "timing": "春播4-5月", "dosage": "每亩4200粒，密度约4500株/亩", "attention": "包衣种子可直接播种，避免重茬", "recommend": ["复合肥", "尿素", "磷酸二铵"]}},
+            {"产品名称": "农单145", "品牌/厂家": "农兆福", "规格": "4400粒", "审定编号": "冀审玉20200004、冀审玉20180029", "产品特点": "玉米杂交种，单粒播种", "价格": "待填", "备注": "高产宣传语", "category": "种子", "subCategory": "春夏都可以", "stock": 40,
+                "用途": {"type": "种子", "target": ["玉米"], "crops": ["玉米"], "usage": "单粒播种", "timing": "春播4-5月", "dosage": "每亩4400粒", "attention": "适合机械化作业，注意防治玉米螟", "recommend": ["尿素", "复合肥", "氯氟氰菊酯"]}},
+            {"产品名称": "洛白糯2号", "品牌/厂家": "山西农兆福种业有限公司", "规格": "—", "审定编号": "国审玉20170041", "产品特点": "鲜食玉米品种：皮薄无渣、软糯香甜、口感细腻、风味佳", "价格": "待填", "备注": "获多届展会推介品种", "category": "种子", "subCategory": "春夏都可以", "stock": 30,
+                "用途": {"type": "种子", "target": ["糯玉米"], "crops": ["糯玉米"], "usage": "直播或育苗移栽", "timing": "春播3-4月，秋播7-8月", "dosage": "每亩用种2.5kg，密度3500株/亩", "attention": "与普通玉米隔离种植300m以上，采收期注意保鲜", "recommend": ["有机肥", "复合肥", "尿素"]}},
+            
+            // ========== 农药产品 ==========
+            // 杀虫剂
+            {"产品名称": "甲维盐", "品牌/厂家": "国产/多家厂家", "规格": "100ml/瓶", "审定编号": "—", "产品特点": "高效低毒杀虫剂，胃毒和触杀作用", "价格": "待填", "备注": null, "category": "农药", "subCategory": "杀虫剂", "stock": 200,
+                "用途": {"type": "杀虫", "target": ["玉米螟", "甜菜夜蛾", "斜纹夜蛾", "小菜蛾", "黄芩舞蛾"], "crops": ["玉米", "蔬菜", "中药材"], "usage": "喷雾", "timing": "害虫发生初期，卵孵化盛期至低龄幼虫期", "dosage": "5%甲维盐水分散粒剂3000-4000倍液喷雾，每亩用水30-50L", "attention": "1. 避免在高温强光时段施药；2. 对蜜蜂和水生生物有毒，花期禁用；3. 建议与氯虫苯甲酰胺轮换使用延缓抗性", "recommend": ["氯氟氰菊酯", "苏云金杆菌", "吡虫啉"]}},
+            {"产品名称": "氯氟氰菊酯", "品牌/厂家": "国产/多家厂家", "规格": "500ml/瓶", "审定编号": "—", "产品特点": "广谱性拟除虫菊酯类杀虫剂，触杀胃毒作用", "价格": "待填", "备注": null, "category": "农药", "subCategory": "杀虫剂", "stock": 180,
+                "用途": {"type": "杀虫", "target": ["蚜虫", "玉米螟", "食心虫", "菜青虫", "红蜘蛛", "蝽象", "麦蜘蛛"], "crops": ["小麦", "玉米", "果树", "蔬菜", "中药材"], "usage": "喷雾", "timing": "害虫发生期，蚜虫穗期、玉米螟在心叶期和穗期", "dosage": "2.5%乳油1500-2000倍液或20-30ml/亩兑水30-50L喷雾", "attention": "1. 对鱼、蜜蜂、家蚕有毒，使用时远离水源和蜂场；2. 不能与碱性农药混用；3. 建议与其他作用机理药剂轮换使用", "recommend": ["甲维盐", "吡虫啉", "噻虫嗪"]}},
+            {"产品名称": "吡虫啉", "品牌/厂家": "国产/多家厂家", "规格": "100g/袋", "审定编号": "—", "产品特点": "新烟碱类内吸性杀虫剂，持效期长", "价格": "待填", "备注": null, "category": "农药", "subCategory": "杀虫剂", "stock": 220,
+                "用途": {"type": "杀虫", "target": ["蚜虫", "飞虱", "叶蝉", "粉虱", "蓟马"], "crops": ["小麦", "玉米", "水稻", "蔬菜", "中药材"], "usage": "喷雾或拌种", "timing": "害虫发生初期，拌种在播种前进行", "dosage": "10%可湿性粉剂2000-3000倍液喷雾，拌种按种子量的0.2-0.5%", "attention": "1. 对蜜蜂高毒，花期禁用；2. 不可与碱性农药混用；3. 连续使用易产生抗性，建议与氟啶虫酰胺等轮换", "recommend": ["噻虫嗪", "氯氟氰菊酯", "氟啶虫酰胺"]}},
+            {"产品名称": "噻虫嗪", "品牌/厂家": "国产/多家厂家", "规格": "100g/袋", "审定编号": "—", "产品特点": "新烟碱类内吸性杀虫剂，活性高，持效期长", "价格": "待填", "备注": null, "category": "农药", "subCategory": "杀虫剂", "stock": 190,
+                "用途": {"type": "杀虫", "target": ["蚜虫", "飞虱", "叶蝉", "蓟马"], "crops": ["小麦", "水稻", "玉米", "蔬菜"], "usage": "喷雾或灌根", "timing": "害虫发生初期，叶面喷雾或根部灌溉", "dosage": "25%水分散粒剂3000-4000倍液喷雾或5000倍液灌根", "attention": "1. 对蜜蜂高毒，花期禁用；2. 施药后注意安全间隔期；3. 土壤处理持效期可达30天以上", "recommend": ["吡虫啉", "氯氟氰菊酯", "阿维菌素"]}},
+            {"产品名称": "高效氯氰菊酯", "品牌/厂家": "国产/多家厂家", "规格": "500ml/瓶", "审定编号": "PD20110173", "产品特点": "拟除虫菊酯类杀虫剂，触杀胃毒作用强，广谱高效", "价格": "待填", "备注": "中等毒", "category": "农药", "subCategory": "杀虫剂", "stock": 150,
+                "用途": {"type": "杀虫", "target": ["蚜虫", "玉米螟", "菜青虫", "食心虫", "棉铃虫", "桃小食心虫"], "crops": ["小麦", "玉米", "蔬菜", "果树", "棉花"], "usage": "喷雾", "timing": "害虫发生初期，卵孵化盛期至低龄幼虫期", "dosage": "4.5%水乳剂30-50ml/亩，兑水30-50L喷雾", "attention": "1. 中等毒，注意安全防护；2. 对鱼、蜜蜂、家蚕有毒；3. 不能与碱性农药混用；4. 安全间隔期7-14天", "recommend": ["甲维盐", "氯氟氰菊酯", "吡虫啉"]}},
+            {"产品名称": "高效氯氟氰菊酯", "品牌/厂家": "国产/多家厂家", "规格": "500ml/瓶", "审定编号": "—", "产品特点": "拟除虫菊酯类杀虫剂，活性更高，触杀胃毒作用强", "价格": "待填", "备注": "中等毒", "category": "农药", "subCategory": "杀虫剂", "stock": 160,
+                "用途": {"type": "杀虫", "target": ["蚜虫", "玉米螟", "菜青虫", "食心虫", "棉铃虫", "红蜘蛛", "蝽象"], "crops": ["小麦", "玉米", "蔬菜", "果树", "棉花"], "usage": "喷雾", "timing": "害虫发生初期，卵孵化盛期至低龄幼虫期", "dosage": "5%微乳剂20-30ml/亩，兑水30-50L喷雾", "attention": "1. 中等毒，注意安全防护；2. 对鱼、蜜蜂、家蚕有毒；3. 不能与碱性农药混用；4. 安全间隔期7-14天", "recommend": ["甲维盐", "吡虫啉", "噻虫嗪"]}},
+            
+            // 除草剂
+            {"产品名称": "苄嘧磺隆", "品牌/厂家": "国产/多家厂家", "规格": "30g/袋", "审定编号": "—", "产品特点": "磺酰脲类选择性除草剂，专杀阔叶杂草和莎草", "价格": "待填", "备注": null, "category": "农药", "subCategory": "除草剂", "stock": 150,
+                "用途": {"type": "除草", "target": ["播娘蒿", "荠菜", "猪殃殃", "鸭舌草", "眼子菜", "莎草"], "crops": ["水稻", "小麦"], "usage": "喷雾或毒土", "timing": "杂草2-4叶期，水稻小麦苗期", "dosage": "10%可湿性粉剂20-30g/亩，兑水30-40L喷雾", "attention": "1. 籼稻品种敏感，慎用；2. 麦田使用避开寒潮天气；3. 水稻田保水3-5cm但勿淹没心叶", "recommend": ["苯磺隆", "精噁唑禾草灵", "尿素"]}},
+            {"产品名称": "硝·烟·莠去津", "品牌/厂家": "丰乐农化", "规格": "瓶装", "审定编号": "—", "产品特点": "36%可分散油悬浮剂，玉米田苗后除草，杀草谱广", "价格": "待填", "备注": "低毒", "category": "农药", "subCategory": "除草剂", "stock": 120,
+                "用途": {"type": "除草", "target": ["一年生禾本科杂草", "一年生阔叶杂草"], "crops": ["春玉米"], "usage": "喷雾", "timing": "玉米3-5叶期，杂草2-4叶期", "dosage": "70-100ml/亩，兑水30-40L喷雾", "attention": "1. 仅用于春玉米田；2. 避免药液漂移到敏感作物；3. 施药后6小时内遇雨需补喷；4. 安全间隔期：玉米收获前30天", "recommend": ["苯唑草酮", "烟嘧磺隆"]}},
+            {"产品名称": "滴酸·草甘膦", "品牌/厂家": "国产/多家厂家", "规格": "瓶装", "审定编号": "—", "产品特点": "32%可溶液剂，灭生性除草，除草彻底", "价格": "待填", "备注": "低毒", "category": "农药", "subCategory": "除草剂", "stock": 180,
+                "用途": {"type": "除草", "target": ["一年生杂草", "多年生杂草", "灌木"], "crops": ["果园", "林地", "荒地", "田埂"], "usage": "喷雾", "timing": "杂草生长旺盛期，株高10-15cm时", "dosage": "150-200ml/亩，兑水30-40L喷雾", "attention": "1. 灭生性除草剂，避免药液接触作物；2. 施药后4小时内遇雨需补喷；3. 晴天施药效果更好；4. 不能用于田间除草", "recommend": []}},
+            {"产品名称": "滴酸·草甘膦（滨农快刀）", "品牌/厂家": "滨农科技", "规格": "5kg/桶", "审定编号": "PD20240114", "产品特点": "32%可溶液剂，灭生性除草，大包装更经济", "价格": "待填", "备注": "低毒", "category": "农药", "subCategory": "除草剂", "stock": 50,
+                "用途": {"type": "除草", "target": ["一年生杂草", "多年生杂草", "灌木"], "crops": ["果园", "林地", "荒地", "田埂"], "usage": "喷雾", "timing": "杂草生长旺盛期，株高10-15cm时", "dosage": "150-200ml/亩，兑水30-40L喷雾", "attention": "1. 灭生性除草剂，避免药液接触作物；2. 施药后4小时内遇雨需补喷；3. 晴天施药效果更好；4. 不能用于田间除草", "recommend": []}},
+            {"产品名称": "苯唑草酮", "品牌/厂家": "国产/多家厂家", "规格": "瓶装", "审定编号": "PD20230538", "产品特点": "4%可分散油悬浮剂，玉米田苗后除草，安全性高", "价格": "待填", "备注": "低毒", "category": "农药", "subCategory": "除草剂", "stock": 100,
+                "用途": {"type": "除草", "target": ["一年生禾本科杂草", "一年生阔叶杂草"], "crops": ["玉米"], "usage": "喷雾", "timing": "玉米2-8叶期，杂草2-5叶期", "dosage": "20-30ml/亩，兑水30L喷雾", "attention": "1. 对大多数玉米品种安全；2. 避免在极端天气条件下施药；3. 不要与有机磷农药混用；4. 安全间隔期：玉米收获前30天", "recommend": ["硝·烟·莠去津", "烟嘧磺隆"]}},
+            {"产品名称": "草甘膦异丙胺盐", "品牌/厂家": "国产/多家厂家", "规格": "瓶装", "审定编号": "PD20095931", "产品特点": "30%水剂，灭生性除草，内吸传导", "价格": "待填", "备注": "低毒", "category": "农药", "subCategory": "除草剂", "stock": 200,
+                "用途": {"type": "除草", "target": ["一年生杂草", "多年生杂草"], "crops": ["果园", "林地", "荒地", "田埂"], "usage": "喷雾", "timing": "杂草生长旺盛期", "dosage": "200-300ml/亩，兑水30-40L喷雾", "attention": "1. 灭生性除草剂，避免药液接触作物；2. 施药后6小时内遇雨需补喷；3. 晴天施药效果更好", "recommend": []}},
+            {"产品名称": "草甘膦异丙胺盐（拜耳）", "品牌/厂家": "拜耳", "规格": "瓶装", "审定编号": "PD73-88", "产品特点": "灭生性除草，品牌产品，质量稳定", "价格": "待填", "备注": "微毒", "category": "农药", "subCategory": "除草剂", "stock": 80,
+                "用途": {"type": "除草", "target": ["一年生杂草", "多年生杂草"], "crops": ["果园", "林地", "荒地", "田埂"], "usage": "喷雾", "timing": "杂草生长旺盛期", "dosage": "按说明书使用", "attention": "1. 微毒产品，更安全；2. 灭生性除草剂，避免药液接触作物；3. 施药后遇雨需补喷", "recommend": []}},
+            {"产品名称": "硝磺·莠去津+环磺酮（钰冠丰）", "品牌/厂家": "滨农科技", "规格": "140ml+90ml/套", "审定编号": "—", "产品特点": "25%硝磺·莠去津+8%环磺酮，玉米田除草组合", "价格": "待填", "备注": "低毒", "category": "农药", "subCategory": "除草剂", "stock": 60,
+                "用途": {"type": "除草", "target": ["一年生禾本科杂草", "一年生阔叶杂草"], "crops": ["玉米"], "usage": "喷雾", "timing": "玉米3-5叶期，杂草2-4叶期", "dosage": "一套/亩，兑水30L喷雾", "attention": "1. 组合使用效果更好；2. 避免药液漂移；3. 施药后6小时内遇雨需补喷", "recommend": []}},
+            {"产品名称": "烟嘧·莠·异丙+硝磺草酮（金忘锄）", "品牌/厂家": "滨农科技", "规格": "套装", "审定编号": "—", "产品特点": "37%烟嘧·莠·异丙+硝磺草酮+2甲4氯钠，玉米田除草组合", "价格": "待填", "备注": "低毒", "category": "农药", "subCategory": "除草剂", "stock": 55,
+                "用途": {"type": "除草", "target": ["一年生禾本科杂草", "一年生阔叶杂草", "莎草"], "crops": ["玉米"], "usage": "喷雾", "timing": "玉米3-5叶期，杂草2-4叶期", "dosage": "按说明书使用", "attention": "1. 组合使用杀草谱更广；2. 避免药液漂移；3. 不要与有机磷农药混用", "recommend": []}},
+            {"产品名称": "苯唑草酮+硝磺·莠去津（滨农溢彩）", "品牌/厂家": "滨农科技", "规格": "套装", "审定编号": "—", "产品特点": "30%苯唑草酮+25%硝磺·莠去津，玉米田除草组合", "价格": "待填", "备注": "低毒", "category": "农药", "subCategory": "除草剂", "stock": 65,
+                "用途": {"type": "除草", "target": ["一年生禾本科杂草", "一年生阔叶杂草"], "crops": ["玉米"], "usage": "喷雾", "timing": "玉米2-8叶期，杂草2-5叶期", "dosage": "按说明书使用", "attention": "1. 组合使用安全性更高；2. 对大多数玉米品种安全；3. 避免在极端天气条件下施药", "recommend": []}},
+            
+            // 杀菌剂
+            {"产品名称": "甲基硫菌灵", "品牌/厂家": "国产/多家厂家", "规格": "200g/袋", "审定编号": "—", "产品特点": "广谱内吸性杀菌剂，具有保护和治疗作用", "价格": "待填", "备注": null, "category": "农药", "subCategory": "杀菌剂", "stock": 170,
+                "用途": {"type": "杀菌", "target": ["白粉病", "锈病", "炭疽病", "褐斑病", "赤霉病", "轮纹病"], "crops": ["小麦", "玉米", "果树", "蔬菜", "山楂", "樱桃"], "usage": "喷雾", "timing": "发病前或发病初期，间隔7-10天连续用药2-3次", "dosage": "70%可湿性粉剂800-1000倍液或50%悬浮剂600-800倍液喷雾", "attention": "1. 不能与铜制剂混用；2. 收获前14天停止使用；3. 可与三唑类杀菌剂混配扩大杀菌谱", "recommend": ["多菌灵", "代森锰锌", "苯醚甲环唑"]}},
+            {"产品名称": "唑醚·戊唑醇", "品牌/厂家": "国产/多家厂家", "规格": "瓶装", "审定编号": "—", "产品特点": "30%悬浮剂，吡唑醚菌酯10%+戊唑醇20%，广谱杀菌", "价格": "待填", "备注": "低毒", "category": "农药", "subCategory": "杀菌剂", "stock": 90,
+                "用途": {"type": "杀菌", "target": ["小麦赤霉病", "玉米大斑病"], "crops": ["小麦", "玉米"], "usage": "喷雾", "timing": "发病前或发病初期，间隔7-10天，连续2次", "dosage": "30-40ml/亩，兑水30-50L喷雾", "attention": "1. 玉米安全间隔期21天，每季最多2次；2. 小麦安全间隔期35天，每季最多2次；3. 大风天或预计1小时内有雨勿施药", "recommend": ["甲基硫菌灵", "多菌灵"]}},
+            {"产品名称": "苯甲·吡唑酯（滨农立润）", "品牌/厂家": "滨农科技", "规格": "瓶装", "审定编号": "—", "产品特点": "40%悬浮剂，吡唑醚菌酯25%+苯醚甲环唑15%，广谱杀菌", "价格": "待填", "备注": "低毒", "category": "农药", "subCategory": "杀菌剂", "stock": 85,
+                "用途": {"type": "杀菌", "target": ["葡萄白粉病", "炭疽病", "白腐病"], "crops": ["葡萄", "果树", "蔬菜"], "usage": "喷雾", "timing": "发病前或发病初期，间隔7-10天", "dosage": "1667-2500倍液喷雾", "attention": "1. 安全间隔期：葡萄收获前7天；2. 每季最多使用3次；3. 避免高温强光时段施药", "recommend": ["甲基硫菌灵", "代森锰锌"]}},
+            
+            // ========== 肥料产品 ==========
+            {"产品名称": "尿素", "品牌/厂家": "国产/多家厂家", "规格": "40kg/袋", "审定编号": "—", "产品特点": "含氮量46%，白色结晶，速效氮肥", "价格": "待填", "备注": null, "category": "肥料", "subCategory": "氮肥", "stock": 500,
+                "用途": {"type": "肥料", "target": ["氮"], "crops": ["小麦", "玉米", "水稻", "蔬菜", "果树", "中药材"], "usage": "撒施、沟施或滴灌", "timing": "追肥为主，基肥为辅；小麦拔节期、玉米大喇叭口期", "dosage": "追肥每亩10-20kg，基肥每亩15-25kg", "attention": "1. 深施覆土减少挥发；2. 不能直接撒在地表；3. 避免与种子直接接触；4. 高温多雨季节易流失", "recommend": ["磷酸二铵", "硫酸钾", "复合肥"]}},
+            {"产品名称": "磷酸二铵", "品牌/厂家": "国产/多家厂家", "规格": "40kg/袋", "审定编号": "—", "产品特点": "含氮18%、五氧化二磷46%，水溶性好", "价格": "待填", "备注": null, "category": "肥料", "subCategory": "复合肥", "stock": 400,
+                "用途": {"type": "肥料", "target": ["氮", "磷"], "crops": ["小麦", "玉米", "水稻", "果树", "蔬菜"], "usage": "基肥撒施或沟施，追肥稀释后滴灌", "timing": "作基肥在整地前施入，追肥在作物需肥高峰期", "dosage": "基肥每亩20-30kg，追肥每亩10-15kg", "attention": "1. 可与尿素、硫酸钾配合使用；2. 不宜与碱性肥料混用；3. 水溶性好，适合滴灌施肥", "recommend": ["尿素", "硫酸钾", "复合肥"]}},
+            {"产品名称": "硫酸钾", "品牌/厂家": "国产/多家厂家", "规格": "40kg/袋", "审定编号": "—", "产品特点": "含钾50%、含硫18%，水溶性好", "价格": "待填", "备注": null, "category": "肥料", "subCategory": "钾肥", "stock": 350,
+                "用途": {"type": "肥料", "target": ["钾", "硫"], "crops": ["小麦", "玉米", "果树", "蔬菜", "薯类", "中药材"], "usage": "基肥或追肥，撒施后翻耕", "timing": "基肥或追施，果实膨大期、淀粉积累期", "dosage": "基肥每亩15-25kg，追肥每亩10-15kg", "attention": "1. 适用于喜硫作物如十字花科；2. 盐碱地禁用含氯钾肥；3. 可与氮磷肥配合使用", "recommend": ["尿素", "磷酸二铵", "复合肥"]}},
+            {"产品名称": "复合肥", "品牌/厂家": "国产/多家厂家", "规格": "50kg/袋", "审定编号": "—", "产品特点": "氮磷钾三元素复配，比例多样", "价格": "待填", "备注": null, "category": "肥料", "subCategory": "复合肥", "stock": 450,
+                "用途": {"type": "肥料", "target": ["氮", "磷", "钾"], "crops": ["小麦", "玉米", "水稻", "果树", "蔬菜", "中药材"], "usage": "基肥撒施或沟施", "timing": "整地前作基肥施入，部分高浓度复合肥可作追肥", "dosage": "基肥每亩40-60kg，根据作物和土壤情况调整", "attention": "1. 根据作物选择合适配比（N-P-K）；2. 种肥同播时注意种肥距离8-10cm；3. 追肥建议选用高氮型", "recommend": ["尿素", "磷酸二铵", "有机肥"]}},
+            {"产品名称": "有机肥", "品牌/厂家": "国产/多家厂家", "规格": "40kg/袋", "审定编号": "—", "产品特点": "富含有机质和微生物，改良土壤结构", "价格": "待填", "备注": null, "category": "肥料", "subCategory": "有机肥", "stock": 300,
+                "用途": {"type": "肥料", "target": ["有机质", "微生物"], "crops": ["小麦", "玉米", "果树", "蔬菜", "中药材", "花卉"], "usage": "基肥深施或沟施", "timing": "秋施基肥为主，果实采收后至土壤封冻前", "dosage": "商品有机肥每亩200-500kg，腐熟农家肥每亩2-4方", "attention": "1. 必须充分腐熟后方可使用；2. 深施20-30cm，与土壤混匀；3. 配合无机肥效果更好", "recommend": ["复合肥", "尿素", "磷酸二铵"]}}
         ];
 
         // 区域数据：县 → 镇 → 村 三级结构
@@ -3847,6 +3910,32 @@
             
             list.innerHTML = filtered.map((p, i) => {
                 const globalIndex = allProducts.indexOf(p);
+                const usage = p['用途'] || {};
+                const typeColors = {
+                    '杀虫': '#E53935',
+                    '杀菌': '#1E88E5',
+                    '除草': '#43A047',
+                    '种子': '#FB8C00',
+                    '肥料': '#8E24AA'
+                };
+                const typeColor = typeColors[usage.type] || '#757575';
+                const typeLabel = usage.type ? `<span class="product-tag" style="background:${typeColor};color:white;margin-right:4px;">${usage.type}</span>` : '';
+                
+                // 简短的用途说明
+                let usageBrief = '';
+                if (usage.type) {
+                    if (usage.type === '杀虫' || usage.type === '杀菌' || usage.type === '除草') {
+                        const targets = usage.target ? usage.target.slice(0, 3).join('、') : '';
+                        usageBrief = targets ? `<div style="font-size:12px;color:#E65100;margin-top:4px;">🐛 ${targets}</div>` : '';
+                    } else if (usage.type === '种子') {
+                        const crops = usage.crops ? usage.crops.join('、') : '';
+                        usageBrief = crops ? `<div style="font-size:12px;color:#2E7D32;margin-top:4px;">🌾 适用：${crops}</div>` : '';
+                    } else if (usage.type === '肥料') {
+                        const nutrients = usage.target ? usage.target.join('、') : '';
+                        usageBrief = nutrients ? `<div style="font-size:12px;color:#7B1FA2;margin-top:4px;">🧪 含：${nutrients}</div>` : '';
+                    }
+                }
+                
                 return `
                 <div class="product-item" onclick="showProductDetail(${globalIndex})">
                     <div class="product-name">${p['产品名称']}</div>
@@ -3854,7 +3943,9 @@
                         <div>品牌：${p['品牌/厂家'] || '-'}</div>
                         <div>规格：${p['规格'] || '-'}</div>
                     </div>
+                    ${typeLabel}
                     ${getProductCategoryTag(p)}
+                    ${usageBrief}
                 </div>
             `}).join('');
         }
@@ -3870,6 +3961,72 @@
             const cat = getProductCategory(p);
             const subCat = getProductSubCategory(p);
             const categoryDisplay = (cat && subCat) ? `${CATEGORY_ICONS[cat] || ''} ${cat} · ${subCat}` : (cat || '未分类');
+            
+            // 获取用途类型标签颜色
+            const usage = p['用途'] || {};
+            const typeColors = {
+                '杀虫': '#E53935',
+                '杀菌': '#1E88E5',
+                '除草': '#43A047',
+                '种子': '#FB8C00',
+                '肥料': '#8E24AA'
+            };
+            const typeColor = typeColors[usage.type] || '#757575';
+            const typeLabel = usage.type ? `<span style="background:${typeColor};color:white;padding:4px 10px;border-radius:12px;font-size:12px;display:inline-block;">${usage.type}</span>` : '';
+            
+            // 用途HTML内容
+            let usageHtml = '';
+            if (usage.type) {
+                // 防治对象/适用作物
+                const targets = usage.target ? usage.target.join('、') : '-';
+                const crops = usage.crops ? usage.crops.join('、') : '-';
+                
+                // 推荐搭配产品
+                const recommends = usage.recommend ? usage.recommend.map(r => `<span style="background:#F5F5F5;padding:4px 10px;border-radius:6px;font-size:12px;margin:2px;display:inline-block;">${r}</span>`).join('') : '-';
+                
+                usageHtml = `
+                <div style="margin-top:16px;padding-top:16px;border-top:2px solid #E0E0E0;">
+                    <div style="font-size:15px;font-weight:600;margin-bottom:12px;display:flex;align-items:center;gap:8px;">
+                        <span>📋 产品用途</span>${typeLabel}
+                    </div>
+                    ${usage.type !== '肥料' && usage.type !== '种子' ? `
+                    <div class="detail-row" style="background:#FFF8E1;">
+                        <div class="detail-label" style="color:#E65100;font-weight:500;">🐛 防治对象</div>
+                        <div class="detail-value" style="color:#E65100;">${targets}</div>
+                    </div>
+                    ` : ''}
+                    <div class="detail-row" style="background:#E8F5E9;">
+                        <div class="detail-label" style="color:#2E7D32;font-weight:500;">🌾 适用作物</div>
+                        <div class="detail-value" style="color:#2E7D32;">${crops}</div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">💉 使用方法</div>
+                        <div class="detail-value">${usage.usage || '-'}</div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">⏰ 使用时期</div>
+                        <div class="detail-value">${usage.timing || '-'}</div>
+                    </div>
+                    <div class="detail-row" style="background:#E3F2FD;">
+                        <div class="detail-label" style="color:#1565C0;font-weight:500;">📏 用法用量</div>
+                        <div class="detail-value" style="color:#1565C0;">${usage.dosage || '-'}</div>
+                    </div>
+                    ${usage.attention ? `
+                    <div style="background:#FFF3E0;padding:12px;border-radius:8px;margin-top:8px;">
+                        <div style="font-size:13px;color:#E65100;font-weight:500;margin-bottom:6px;">⚠️ 注意事项</div>
+                        <div style="font-size:13px;color:#5D4037;line-height:1.6;">${usage.attention}</div>
+                    </div>
+                    ` : ''}
+                    ${usage.recommend && usage.recommend.length > 0 ? `
+                    <div style="margin-top:12px;">
+                        <div style="font-size:13px;color:#666;margin-bottom:8px;">💡 推荐搭配</div>
+                        <div style="display:flex;flex-wrap:wrap;gap:6px;">${recommends}</div>
+                    </div>
+                    ` : ''}
+                </div>
+                `;
+            }
+            
             document.getElementById('detailBody').innerHTML = `
                 <div class="detail-row">
                     <div class="detail-label">产品分类</div>
@@ -3891,6 +4048,7 @@
                     <div class="detail-label">产品特点</div>
                     <div class="detail-value">${p['产品特点'] || '-'}</div>
                 </div>
+                ${usageHtml}
                 <div class="detail-row">
                     <div class="detail-label">价格</div>
                     <div class="detail-value">${p['价格'] || '-'}</div>
@@ -4463,6 +4621,8 @@
                 ${c.wechat ? `<div class="detail-row"><div class="detail-label">微信号</div><div class="detail-value">${c.wechat}</div></div>` : ''}
                 ${c.remark ? `<div class="detail-row"><div class="detail-label">备注</div><div class="detail-value">${c.remark}</div></div>` : ''}
                 
+                ${getProductRecommendationsHtml(c)}
+                
                 <div style="margin: 16px 0 12px; font-weight: 600; font-size: 15px;">📦 铺货记录</div>
                 ${statsHtml}
                 <div class="product-record" id="customerProductList">
@@ -4472,6 +4632,167 @@
             `;
             
             document.getElementById('customerDetailModal').classList.add('active');
+        }
+        
+        // 根据客户区域获取产品推荐
+        function getProductRecommendationsHtml(c) {
+            const regionName = c.regionBig || '';
+            const townName = c.regionMid || '';
+            const villageName = c.regionSmall || '';
+            
+            // 从农业助手数据中获取区域病虫害信息
+            const regionData = ASSISTANT_REGIONS[regionName];
+            if (!regionData) return '';
+            
+            // 获取村庄病虫害信息
+            let villageInfo = null;
+            if (townName && villageName && regionData.towns && regionData.towns[townName]) {
+                const townData = regionData.towns[townName];
+                if (townData.villageDetails && townData.villageDetails[villageName]) {
+                    villageInfo = townData.villageDetails[villageName];
+                }
+            }
+            
+            // 如果没有村庄信息，尝试获取乡镇信息
+            let mainCrops = [];
+            let pests = { disease: [], insect: [], weed: [] };
+            if (villageInfo) {
+                mainCrops = villageInfo.mainCrops || [];
+                const pestGuide = villageInfo.pestGuide || {};
+                pests.disease = pestGuide.disease || [];
+                pests.insect = pestGuide.insect || [];
+                pests.weed = pestGuide.weed || [];
+            } else if (townName && regionData.towns && regionData.towns[townName]) {
+                const townData = regionData.towns[townName];
+                // 尝试从mainCrops或cropArea中提取作物信息
+                if (townData.mainCrops) {
+                    mainCrops = townData.mainCrops.replace(/[\d\.\+万亩（）]/g, '').split(/[、,，]/).filter(c => c.trim());
+                }
+            }
+            
+            if (mainCrops.length === 0 && pests.insect.length === 0 && pests.disease.length === 0) {
+                return '';
+            }
+            
+            // 根据作物和病虫害推荐产品
+            const recommendations = [];
+            
+            // 虫害推荐
+            pests.insect.forEach(pest => {
+                PRODUCTS.forEach(p => {
+                    if (p['用途'] && p['用途']['target'] && p['用途']['type'] === '杀虫') {
+                        const targets = p['用途']['target'];
+                        const crops = p['用途']['crops'] || [];
+                        // 匹配病虫害和作物
+                        const pestMatch = targets.some(t => pest.includes(t) || t.includes(pest));
+                        const cropMatch = mainCrops.some(c => crops.some(cr => c.includes(cr)));
+                        if (pestMatch && cropMatch) {
+                            recommendations.push({
+                                type: '杀虫',
+                                product: p['产品名称'],
+                                target: pest,
+                                crops: mainCrops.filter(c => crops.some(cr => c.includes(cr))).slice(0, 2),
+                                usage: p['用途']['usage']
+                            });
+                        }
+                    }
+                });
+            });
+            
+            // 病害推荐
+            pests.disease.forEach(disease => {
+                PRODUCTS.forEach(p => {
+                    if (p['用途'] && p['用途']['target'] && p['用途']['type'] === '杀菌') {
+                        const targets = p['用途']['target'];
+                        const crops = p['用途']['crops'] || [];
+                        const diseaseMatch = targets.some(t => disease.includes(t) || t.includes(disease));
+                        const cropMatch = mainCrops.some(c => crops.some(cr => c.includes(cr)));
+                        if (diseaseMatch && cropMatch) {
+                            recommendations.push({
+                                type: '杀菌',
+                                product: p['产品名称'],
+                                target: disease,
+                                crops: mainCrops.filter(c => crops.some(cr => c.includes(cr))).slice(0, 2),
+                                usage: p['用途']['usage']
+                            });
+                        }
+                    }
+                });
+            });
+            
+            // 种子推荐
+            mainCrops.forEach(crop => {
+                PRODUCTS.forEach(p => {
+                    if (p['用途'] && p['用途']['type'] === '种子') {
+                        const crops = p['用途']['crops'] || [];
+                        if (crops.some(c => crop.includes(c) || c.includes(crop))) {
+                            recommendations.push({
+                                type: '种子',
+                                product: p['产品名称'],
+                                target: crop,
+                                crops: [crop],
+                                usage: p['用途']['usage']
+                            });
+                        }
+                    }
+                });
+            });
+            
+            // 肥料推荐
+            if (mainCrops.length > 0) {
+                ['复合肥', '尿素', '有机肥'].forEach(fertName => {
+                    const fert = PRODUCTS.find(p => p['产品名称'] === fertName);
+                    if (fert) {
+                        recommendations.push({
+                            type: '肥料',
+                            product: fert['产品名称'],
+                            target: fert['用途']['target'].join('、'),
+                            crops: mainCrops.slice(0, 2),
+                            usage: fert['用途']['usage']
+                        });
+                    }
+                });
+            }
+            
+            // 去重
+            const uniqueRecs = [];
+            const seen = new Set();
+            recommendations.forEach(r => {
+                const key = r.product;
+                if (!seen.has(key)) {
+                    seen.add(key);
+                    uniqueRecs.push(r);
+                }
+            });
+            
+            if (uniqueRecs.length === 0) return '';
+            
+            // 生成HTML
+            const typeIcons = { '杀虫': '🐛', '杀菌': '🦠', '除草': '🌿', '种子': '🌾', '肥料': '🧪' };
+            const typeColors = { '杀虫': '#E53935', '杀菌': '#1E88E5', '除草': '#43A047', '种子': '#FB8C00', '肥料': '#8E24AA' };
+            
+            const recCards = uniqueRecs.slice(0, 6).map(r => `
+                <div style="background:#FAFAFA;border-radius:8px;padding:10px;margin-bottom:8px;border-left:4px solid ${typeColors[r.type]};">
+                    <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;">
+                        <span style="font-size:14px;">${typeIcons[r.type] || '📦'}</span>
+                        <span style="font-weight:600;font-size:14px;">${r.product}</span>
+                    </div>
+                    <div style="font-size:12px;color:#E65100;">${r.type === '杀虫' || r.type === '杀菌' ? '防治: ' + r.target : '作物: ' + r.target}</div>
+                    <div style="font-size:11px;color:#757575;margin-top:2px;">适用: ${r.crops.join('、')}</div>
+                </div>
+            `).join('');
+            
+            return `
+                <div style="margin: 16px 0; padding: 16px; background: linear-gradient(135deg, #E8F5E9 0%, #F1F8E9 100%); border-radius: 12px;">
+                    <div style="font-weight: 600; font-size: 15px; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                        <span style="font-size: 18px;">💡</span>
+                        <span>智能推荐</span>
+                        <span style="font-size:12px;color:#666;font-weight:normal;">基于${townName}${villageName ? '·' + villageName : ''}作物情况</span>
+                    </div>
+                    ${recCards}
+                    <div style="font-size:11px;color:#999;text-align:center;margin-top:8px;">点击产品查看详情 →</div>
+                </div>
+            `;
         }
 
         // 关闭客户详情弹窗
